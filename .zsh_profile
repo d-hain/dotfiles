@@ -10,3 +10,4 @@ random_6_digit_number() {
 alias cls='clear'
 alias ll='exa -la'
 alias ls='exa'
+alias vim='nvim'
