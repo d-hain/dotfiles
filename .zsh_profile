@@ -1,0 +1,12 @@
+# Functions
+
+# Generates a random number
+random_6_digit_number() {
+	echo $(( $RANDOM % 10 ))$(( $RANDOM % 10 ))$(( $RANDOM % 10 ))$(( $RANDOM % 10 ))$(( $RANDOM % 10 ))$(( $RANDOM % 10 ))
+}
+
+# Aliases
+
+alias cls='clear'
+alias ll='exa -la'
+alias ls='exa'
