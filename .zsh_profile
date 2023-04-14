@@ -8,6 +8,6 @@ random_6_digit_number() {
 # Aliases
 
 alias cls='clear'
-alias ll='exa -la'
 alias ls='exa'
+alias ll='exa -la'
 alias vim='nvim'
