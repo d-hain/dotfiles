@@ -1,0 +1,5 @@
+# Configuration for output devices
+
+#output <identifier> {
+#    mode 1920x1080@60.000Hz
+#}
