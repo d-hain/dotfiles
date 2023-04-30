@@ -1,0 +1,34 @@
+ignore-empty-password
+image=/home/dhain/.config/lockscreen.png
+# font=JetBrains Mono
+
+# Colors
+text-color=080808
+text-ver-color=00000000
+text-wrong-color=00000000
+text-clear-color=00000000
+
+inside-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=00000000
+inside-clear-color=00000000
+inside-caps-lock-color=00000000
+
+ring-color=#89C4C2
+ring-ver-color=#C1E1C1
+ring-wrong-color=#BC789E
+ring-clear-color=#F5A2A2
+
+key-hl-color=#D0EBC5
+bs-hl-color=#F3F7C1
+
+line-uses-ring
+line-color=00000000
+
+separator-color=00000000
+
+# Sizes
+scaling=fill
+font-size=200
+indicator-radius=120
+indicator-thickness=20
