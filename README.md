@@ -1,10 +1,4 @@
 # My dotfiles
 
-In the root folder there are all general configs that I would use everywhere.\
-Things like a .vimrc or a .zshrc.
-
-The next layer of folders is a operating system that I use.\
-In there are all config files used specifically for that OS.
-
-Then there are color schemes.\
-And in there all custom config files.
+Here all my currently used dotfiles (even if I don't really use all tools in here actively).\
+If there is some config that only works for a specific operating system then it is located in a folder named after it.
