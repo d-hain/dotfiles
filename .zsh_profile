@@ -3,5 +3,3 @@
 alias cls='clear'
 alias ls='exa'
 alias ll='exa -la'
-alias vim='nvim'
-alias kP='git push'
