@@ -1,5 +1,7 @@
 # Aliases
+alias cls="clear"
+alias ls ="exa"
+alias ll="exa -la"
 
-alias cls='clear'
-alias ls='exa'
-alias ll='exa -la'
+# Exports
+export PATH="$HOME/.local/bin:$PATH"

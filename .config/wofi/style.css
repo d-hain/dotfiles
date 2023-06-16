@@ -1,0 +1,35 @@
+* {
+    border-radius: 7px;    
+    border: none;
+}
+
+#window {
+    background-color: #292D3E;
+    font-size: 20px;
+    font-family: "JetBrainsMonoNerdFont";
+    color: white;
+}
+
+#entry {
+    padding: 0.25em;
+}
+
+#entry:selected {
+    background: linear-gradient(90deg, #c3e88d, #c792ea);
+    color: #333333;
+}
+
+#text:selected {
+    color: #333333;
+}
+
+#input {
+    background-color: #292D3E;
+    color: white;
+    padding: 0.25em;
+}
+
+#img {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
