@@ -41,16 +41,36 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } }
     }
 
-    -- The vim GOD
+    -- The Vim GOD
     use "tpope/vim-fugitive"
     use "tpope/vim-commentary"
-    use "tpope/vim-surround"
+
+    -- (sadly) a little better than from the Vim GOD. ):
+    use {
+        "kylechui/nvim-surround",
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    }
 
     -- Useful things
     use "mbbill/undotree"
-    use "windwp/nvim-autopairs"
+    use {
+        "windwp/nvim-autopairs",
+        config = {
+            require("nvim-autopairs").setup()
+        }
+    }
     use "f-person/git-blame.nvim"
     use "nvim-treesitter/nvim-treesitter-context"
+    use {
+        "Wansmer/treesj",
+        requires = { "nvim-treesitter" },
+        config = function()
+            require("treesj").setup()
+        end,
+    }
 
     -- LSP
     use {
@@ -58,7 +78,7 @@ return require("packer").startup(function(use)
         branch = "v2.x",
         requires = {
             -- LSP Support
-            { "neovim/nvim-lspconfig" },   -- Required
+            { "neovim/nvim-lspconfig" }, -- Required
             {
                 "williamboman/mason.nvim",
                 run = function()
@@ -68,9 +88,16 @@ return require("packer").startup(function(use)
             { "williamboman/mason-lspconfig.nvim" },
 
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" },     -- Required
+            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
             { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "L3MON4D3/LuaSnip" },     -- Required
+            { "hrsh7th/cmp-nvim-lua" }, -- Required
+
+            -- Snippets
+            { "L3MON4D3/LuaSnip" }, -- Required
+            { "rafamadriz/friendly-snippets" },
         }
     }
     use "elkowar/yuck.vim"
@@ -78,5 +105,7 @@ return require("packer").startup(function(use)
     use "github/copilot.vim"
 
     -- Very important
+    use "andweeb/presence.nvim"
     use "eandrju/cellular-automaton.nvim"
+    use "tjdevries/sPoNGe-BoB.NvIm"
 end)

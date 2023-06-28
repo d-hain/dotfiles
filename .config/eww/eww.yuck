@@ -1,0 +1,90 @@
+;; -----------------------------------------
+;; ---------- Listening Variables ----------
+;; -----------------------------------------
+
+;; See: https://github.com/d-hain/hyprland_workspace_display
+(deflisten workspaces_yuck `
+  hyprspacedp \
+      -n 10 \
+      --full-symbol O \
+      --empty-symbol o \
+      --active-symbol X \
+      --eww-widgets \
+      --polling \
+      --eww-class-box box-workspaces \
+      --eww-halign center \
+      --eww-orientation vertical \
+      --eww-class-button button-workspace-{NR} \
+      --eww-onclick 'hyprctl dispatch workspace {NR}'
+  `)
+
+;; ---------------------------------------
+;; ---------- Polling Variables ----------
+;; ---------------------------------------
+
+(defpoll time
+  :interval "1min"
+  "date '+%H:%M'")
+
+(defpoll date
+  :interval "1min"
+  "date '+%d. %B'")
+
+(defpoll battery-percentage
+  :interval "1min"
+  "~/.config/eww/scripts/battery_percentage.sh")
+
+;; -----------------------------
+;; ---------- Widgets ----------
+;; -----------------------------
+
+; (defwidget date-time []
+;   (box 
+;     :orientation "vertical"
+;     :halign "center"
+;     time date))
+
+(defwidget workspaces []
+    (literal
+      :content workspaces_yuck))
+
+;; ----- Bar Sections -----
+(defwidget top []
+    (workspaces))
+
+(defwidget middle []
+  "MIDDLE")
+
+(defwidget bottom []
+  (box
+    :orientation "vertical"
+    :halign "center"
+    battery-percentage time date))
+
+;; ----- Bar -----
+(defwidget bar []
+  (centerbox :orientation "vertical"
+    (box :valign "start"
+      (top))
+    (box :valign "center"
+      (middle))
+    (box :valign "end"
+      (bottom))))
+
+;; -----------------------------
+;; ---------- Windows ----------
+;; -----------------------------
+
+;; ----- Bar -----
+(defwindow bar 
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  :geometry (geometry 
+              :x "6px"
+              :y "6px"
+              :height "99%"
+              :width "50px"
+              :anchor "left center")
+  (bar))

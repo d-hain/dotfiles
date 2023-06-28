@@ -6,12 +6,37 @@ lsp.ensure_installed({
     "rust_analyzer",
 })
 
+-- Fix Undefined global 'vim'
+lsp.configure("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            }
+        }
+    }
+})
+
+-- I LOOOVE JAVA
+local path_to_mason = "/home/dhain/.local/share/nvim/mason/"
+local path_to_jdtls = path_to_mason .. "packages/jdtls/"
+-- Fix lombok notation processing problem
+lsp.configure("jdtls", {
+    cmd = {
+        path_to_mason .. "bin/jdtls",
+        "--jvm-arg=-javaagent:" .. path_to_jdtls .. "lombok.jar",
+        "-configuration",
+        "/home/dhain/.cache/jdtls/config",
+        "-data",
+        "/home/dhain/.cache/jdtls/workspace"
+    }
+})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<tab>"] = cmp.mapping.confirm({ select = true }),
     ["<Return>"] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
 })
@@ -24,8 +49,24 @@ lsp.setup_nvim_cmp({
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
+    local lspconfig = require("lspconfig")
+    lspconfig.intelephense.setup {
+        init_options = {
+            globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense"
+        }
+    }
+
+    vim.lsp.handlers["textDocument/signature_help"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help, {
+            border = "rounded",
+            close_events = { "CursorMoved", "BufHidden", "InsertCharPre" }
+        }
+    )
+
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<C-n>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("i", "<C-n>", function() vim.lsp.buf.signature_help() end, opts)
     vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -34,7 +75,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<C-n>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 lsp.setup()

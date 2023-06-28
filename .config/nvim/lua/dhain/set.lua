@@ -1,3 +1,6 @@
+-- 100 character line
+vim.opt.colorcolumn = "100"
+
 -- Line Numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
