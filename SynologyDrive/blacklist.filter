@@ -12,7 +12,7 @@ black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp"
 max_size = 0
 
 [Directory]
-black_name = "node_modules", "build", ".gradle", "target", ".build", "mysql"
+black_name = "node_modules", "build", ".gradle", "target", ".build", "mysql", "__pycache__"
 
 [EA]
 
