@@ -9,6 +9,12 @@ return require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         { run = ":TSUpdate" }
     }
+    use {
+        "brenoprata10/nvim-highlight-colors",
+        config = {
+            require("nvim-highlight-colors").setup()
+        }
+    }
 
     -- Better than netrw
     use "nvim-tree/nvim-web-devicons"
@@ -16,12 +22,6 @@ return require("packer").startup(function(use)
         "nvim-tree/nvim-tree.lua",
         requires = {
             "nvim-tree/nvim-web-devicons"
-        }
-    }
-    use {
-        "brenoprata10/nvim-highlight-colors",
-        config = {
-            require("nvim-highlight-colors").setup()
         }
     }
 
@@ -41,8 +41,12 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } }
     }
 
-    -- The Vim GOD
+    -- Git things
     use "tpope/vim-fugitive"
+    use "f-person/git-blame.nvim"
+    use "airblade/vim-gitgutter"
+
+    -- The Vim GOD
     use "tpope/vim-commentary"
 
     -- (sadly) a little better than from the Vim GOD. ):
@@ -62,14 +66,25 @@ return require("packer").startup(function(use)
             require("nvim-autopairs").setup()
         }
     }
-    use "f-person/git-blame.nvim"
+    use "alvan/vim-closetag"
     use "nvim-treesitter/nvim-treesitter-context"
+    use  {
+        "nvim-treesitter/playground",
+        requires = { "nvim-treesitter" },
+    }
+    -- Expanding and collapsing code
     use {
         "Wansmer/treesj",
         requires = { "nvim-treesitter" },
         config = function()
             require("treesj").setup()
         end,
+    }
+    use "xiyaowong/link-visitor.nvim"
+    -- Documentation generator
+    use {
+        "kkoomen/vim-doge",
+        run = ":call doge#install()",
     }
 
     -- LSP
@@ -105,7 +120,7 @@ return require("packer").startup(function(use)
     use "github/copilot.vim"
 
     -- Very important
-    use "andweeb/presence.nvim"
+    use "andweeb/presence.nvim" -- Discord Integration
     use "eandrju/cellular-automaton.nvim"
     use "tjdevries/sPoNGe-BoB.NvIm"
 end)

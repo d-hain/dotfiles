@@ -2,6 +2,12 @@
 vim.keymap.set("n", "<C-a>", "<cmd>w<CR>")
 vim.keymap.set("i", "<C-a>", "<Esc><cmd>w<CR>a")
 
+-- Window movement without C-w
+vim.keymap.set("n", "<C-A-h>", "<C-w>h")
+vim.keymap.set("n", "<C-A-j>", "<C-w>j")
+vim.keymap.set("n", "<C-A-k>", "<C-w>k")
+vim.keymap.set("n", "<C-A-l>", "<C-w>l")
+
 -- Moving Selections/Lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")

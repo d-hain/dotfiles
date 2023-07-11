@@ -3,20 +3,19 @@
 ;; -----------------------------------------
 
 ;; See: https://github.com/d-hain/hyprland_workspace_display
-(deflisten workspaces_yuck `
-  hyprspacedp \
+(defpoll workspaces_yuck 
+  :interval "100ms"
+  `hyprspacedp \
       -n 10 \
       --full-symbol O \
       --empty-symbol o \
       --active-symbol X \
       --eww-widgets \
-      --polling \
       --eww-class-box box-workspaces \
       --eww-halign center \
       --eww-orientation vertical \
       --eww-class-button button-workspace-{NR} \
-      --eww-onclick 'hyprctl dispatch workspace {NR}'
-  `)
+      --eww-onclick 'hyprctl dispatch workspace {NR}'`)
 
 ;; ---------------------------------------
 ;; ---------- Polling Variables ----------
@@ -88,3 +87,15 @@
               :width "50px"
               :anchor "left center")
   (bar))
+
+(defwindow powermenu
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+              :width "50%"
+              :height "50%")
+  (powermenu_layout))
+
+(defwidget powermenu_layout []
+  (label :text "Hello, World!"))
+
