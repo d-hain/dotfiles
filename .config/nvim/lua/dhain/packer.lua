@@ -27,8 +27,9 @@ return require("packer").startup(function(use)
         -- PERF:
         -- NOTE:
         -- TEST:
-        -- FIXME: sam ihna
+        -- FIXME:
     }
+    use "RRethy/vim-illuminate"
 
     -- Better than netrw
     use "nvim-tree/nvim-web-devicons"

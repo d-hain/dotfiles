@@ -1,5 +1,16 @@
+-- TODO:
+-- FIX:
+-- HACK:
+-- WARN:
+-- PERF:
+-- NOTE:
+-- TEST:
+
 require("todo-comments").setup {
     keywords = {
+        HACK = {
+            alt = { "TEMP" }
+        },
         PERF = {
             color = "#ba9bf7",
         },
@@ -8,11 +19,5 @@ require("todo-comments").setup {
         },
     }
 }
--- TODO:
--- FIX:
--- FIXME:
--- HACK:
--- WARN:
--- PERF:
--- NOTE:
--- TEST:
+
+vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>")
