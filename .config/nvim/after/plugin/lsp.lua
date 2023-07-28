@@ -32,6 +32,24 @@ lsp.configure("jdtls", {
     }
 })
 
+lsp.configure("clangd", {
+    cmd = {
+        "clangd",
+        -- Fix clangd offset_encoding
+        "--offset-encoding=utf-16",
+        "--background-index",
+        "--pch-storage=memory",
+        "--all-scopes-completion",
+        "--pretty",
+        -- "--header-insertion=never", 
+        "-j=4",
+        "--inlay-hints",
+        "--header-insertion-decorators",
+        "--function-arg-placeholders",
+        "--completion-style=detailed",
+    },
+})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -78,8 +96,13 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vnd", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "<leader>vpd", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+
+    local trouble = require("trouble")
+
+    vim.keymap.set("n", "<leader>vwd", function() trouble.open("workspace_diagnostics") end, opts)
+    vim.keymap.set("n", "<leader>vad", function() trouble.open("document_diagnostics") end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() trouble.open("lsp_references") end, opts)
 end)
 
 lsp.setup()

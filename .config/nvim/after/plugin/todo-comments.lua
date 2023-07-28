@@ -20,4 +20,4 @@ require("todo-comments").setup {
     }
 }
 
-vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>")
+vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope initial_mode=normal<CR>")

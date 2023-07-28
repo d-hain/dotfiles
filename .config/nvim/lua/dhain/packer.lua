@@ -84,10 +84,12 @@ return require("packer").startup(function(use)
 
     -- Useful things
     use "mbbill/undotree"
+    use "xiyaowong/link-visitor.nvim"
     use {
         "nvim-treesitter/playground",
         requires = "nvim-treesitter",
     }
+
     -- Expanding and collapsing code
     use {
         "Wansmer/treesj",
@@ -96,7 +98,6 @@ return require("packer").startup(function(use)
             require("treesj").setup()
         },
     }
-    use "xiyaowong/link-visitor.nvim"
     -- Documentation generator
     use {
         "kkoomen/vim-doge",
@@ -129,9 +130,21 @@ return require("packer").startup(function(use)
             -- Snippets
             { "L3MON4D3/LuaSnip" }, -- Required
             { "rafamadriz/friendly-snippets" },
+
+            -- Better than quickfix list
+            {
+                "folke/trouble.nvim",
+                requires = { "nvim-tree/nvim-web-devicons" },
+            }
         },
     }
     use "elkowar/yuck.vim"
+    use {
+        "ray-x/lsp_signature.nvim",
+        config = {
+            require("lsp_signature").setup()
+        }
+    }
 
     use "github/copilot.vim"
 
