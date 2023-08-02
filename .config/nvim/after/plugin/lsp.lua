@@ -67,9 +67,8 @@ lsp.setup_nvim_cmp({
 })
 
 -- On every buffer that uses an lsp
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
-
     local lspconfig = require("lspconfig")
 
     -- Intelephense folder not in home directory

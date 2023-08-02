@@ -7,16 +7,12 @@ return require("packer").startup(function(use)
     use "navarasu/onedark.nvim"
     use {
         "nvim-treesitter/nvim-treesitter",
+        tag = "0.9.0",
         {
             run = ":TSUpdate"
         },
     }
-    use {
-        "brenoprata10/nvim-highlight-colors",
-        config = {
-            require("nvim-highlight-colors").setup()
-        },
-    }
+    use "brenoprata10/nvim-highlight-colors"
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -32,7 +28,6 @@ return require("packer").startup(function(use)
     use "RRethy/vim-illuminate"
 
     -- Better than netrw
-    use "nvim-tree/nvim-web-devicons"
     use {
         "nvim-tree/nvim-tree.lua",
         requires = "nvim-tree/nvim-web-devicons",
@@ -58,7 +53,7 @@ return require("packer").startup(function(use)
     -- Git things
     use "tpope/vim-fugitive"
     use "f-person/git-blame.nvim"
-    use "airblade/vim-gitgutter"
+    use "airblade/vim-gitgutter" -- git diff icons in lines
 
     -- The Vim GOD
     use "tpope/vim-commentary"
@@ -67,18 +62,10 @@ return require("packer").startup(function(use)
     use {
         "kylechui/nvim-surround",
         tag = "*",
-        config = {
-            require("nvim-surround").setup()
-        },
     }
 
     -- QoL
-    use {
-        "windwp/nvim-autopairs",
-        config = {
-            require("nvim-autopairs").setup()
-        },
-    }
+    use "windwp/nvim-autopairs"
     use "alvan/vim-closetag"
     use "nvim-treesitter/nvim-treesitter-context"
 
@@ -90,14 +77,12 @@ return require("packer").startup(function(use)
         requires = "nvim-treesitter",
     }
 
-    -- Expanding and collapsing code
+    -- Markdown preview
     use {
-        "Wansmer/treesj",
-        requires = "nvim-treesitter",
-        config = {
-            require("treesj").setup()
-        },
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
     }
+
     -- Documentation generator
     use {
         "kkoomen/vim-doge",
@@ -138,13 +123,7 @@ return require("packer").startup(function(use)
             }
         },
     }
-    use "elkowar/yuck.vim"
-    use {
-        "ray-x/lsp_signature.nvim",
-        config = {
-            require("lsp_signature").setup()
-        }
-    }
+    -- TODO: Find a good plugin for Rust Crates
 
     use "github/copilot.vim"
 
