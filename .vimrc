@@ -10,9 +10,6 @@ set incsearch
 set rnu
 set number
 
-" Set Register D to delete everything in file
-:let @D=ggdG
-
 " Move Lines up or down with Alt + k or Alt + j
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
