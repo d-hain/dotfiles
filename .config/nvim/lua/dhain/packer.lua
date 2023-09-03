@@ -71,7 +71,6 @@ return require("packer").startup(function(use)
 
     -- Useful things
     use "mbbill/undotree"
-    use "xiyaowong/link-visitor.nvim"
     use {
         "nvim-treesitter/playground",
         requires = "nvim-treesitter",
@@ -81,12 +80,6 @@ return require("packer").startup(function(use)
     use {
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
-    }
-
-    -- Documentation generator
-    use {
-        "kkoomen/vim-doge",
-        run = ":call doge#install()",
     }
 
     -- LSP

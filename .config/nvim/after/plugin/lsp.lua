@@ -2,9 +2,7 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-    "rust_analyzer",
-})
+lsp.ensure_installed({})
 
 -- Fix Undefined global 'vim'
 lsp.configure("lua_ls", {
@@ -30,24 +28,6 @@ lsp.configure("jdtls", {
         "-data",
         "/home/dhain/.cache/jdtls/workspace"
     }
-})
-
-lsp.configure("clangd", {
-    cmd = {
-        "clangd",
-        -- Fix clangd offset_encoding
-        "--offset-encoding=utf-16",
-        "--background-index",
-        "--pch-storage=memory",
-        "--all-scopes-completion",
-        "--pretty",
-        -- "--header-insertion=never", 
-        "-j=4",
-        "--inlay-hints",
-        "--header-insertion-decorators",
-        "--function-arg-placeholders",
-        "--completion-style=detailed",
-    },
 })
 
 local cmp = require("cmp")
