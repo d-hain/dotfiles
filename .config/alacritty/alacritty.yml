@@ -99,22 +99,22 @@ window:
     # Font configuration
 font:
     # Point size
-    size: 11
+    size: 7.69
     
     normal:
-      family: JetBrainsMonoNerdFont
+      family: JetBrainsMono
       style: Regular
 
     bold:
-      family: JetBrainsMonoNerdFont
+      family: JetBrainsMono
       style: Bold
 
     italic:
-      family: JetBrainsMonoNerdFont
+      family: JetBrainsMono
       style: Italic
 
     bold_italic:
-      family: JetBrainsMonoNerdFont
+      family: JetBrainsMono
       style: BoldItalic
 
 
