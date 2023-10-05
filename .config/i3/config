@@ -14,8 +14,8 @@ font jetbrainsmono:monospace 8
 # Autostart
 exec nmcli radio all on
 # TODO: Autostart wallpaper daemon $home/Pictures/wallpaper.png
-# TODO: exec synology-drive
-# TODO: exec whatpulse
+exec synology-drive
+exec /usr/local/bin/whatpulse.appimage
 exec brave-browser
 
 # Start XDG autostart .desktop files using dex. See also
