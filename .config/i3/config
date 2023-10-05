@@ -11,6 +11,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font jetbrainsmono:monospace 8
 
+# Disable window focus under cursor
+focus_follows_mouse no
+
 # Autostart
 exec nmcli radio all on
 # TODO: Autostart wallpaper daemon $home/Pictures/wallpaper.png
