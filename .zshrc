@@ -96,3 +96,4 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 source ~/.zsh_profile
+

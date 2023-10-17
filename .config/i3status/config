@@ -7,15 +7,16 @@ order += "volume master"
 order += "ipv6"
 order += "disk /"
 order += "wireless _first_"
+order += "wireless _first_ 2"
 order += "ethernet _first_"
 order += "battery all"
 order += "memory"
 order += "time"
 
 volume master {
-    format = " %volume"
-    format_muted = " %volume"
-    device = "pulse:alsa_output.pci-0000_04_00.6.3.HiFi__hw_Generic_1__sink_monitor"
+    format = "V: %volume"
+    format_muted = "V: muted %volume"
+    device = "default"
 }
 
 disk "/" {
@@ -23,7 +24,7 @@ disk "/" {
 }
 
 wireless _first_ {
-    format_up = "W: %essid Leaked IP: %ip"
+    format_up = "W: %essid | Leaked IP: %ip"
     format_down = "W: down"
 }
 
@@ -33,7 +34,7 @@ ethernet _first_ {
 }
 
 battery all {
-    format = "%status %percentage $remaining"
+    format = "%status %percentage"
 }
 
 tztime local {
