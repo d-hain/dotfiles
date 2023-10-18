@@ -19,7 +19,7 @@ for_window [class="imv"] floating enable
 
 # Autostart
 exec nmcli radio all on
-exec setwallpaper /home/dhain/Pictures/wallpaper.png
+exec setwallpaper -m scale /home/dhain/Pictures/wallpaper.png
 exec synology-drive
 exec /usr/local/bin/WhatPulse.AppImage
 exec brave-browser
