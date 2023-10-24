@@ -1,5 +1,0 @@
-source ~/.vimrc
-
-" Use alt+j && alt+k as an vim shortcut
-sethandler <A-j> n-v-i:vim
-sethandler <A-k> n-v-i:vim

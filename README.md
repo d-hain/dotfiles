@@ -9,3 +9,4 @@ If you also want to have [my nvim config](https://github.com/d-hain/init.lua) us
 ```shell
 git clone --recurse-submodules https://github.com/d-hain/dotfiles
 ```
+
