@@ -14,6 +14,7 @@
 !.config/
 .config/*
 !.config/alacritty/
+!.config/wezterm/
 !.config/hypr/
 !.config/hypr/hyprland/
 !.config/i3/
