@@ -11,6 +11,11 @@ end
 config.color_scheme = "One Dark (Gogh)"
 config.font = wezterm.font("JetBrains Mono")
 config.use_fancy_tab_bar = false
+config.window_close_confirmation = "NeverPrompt"
+
+config.colors = {
+    foreground = "#abb2bf",
+}
 
 config.keys = {
     {
