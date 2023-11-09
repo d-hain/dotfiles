@@ -20,3 +20,4 @@ else [[ $lidstate -eq 1 ]];
     xrandr --output eDP --mode 1920x1080
 fi
 
+setwallpaper -m scale /home/dhain/Pictures/wallpaper.png

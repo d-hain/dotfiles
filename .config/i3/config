@@ -16,6 +16,7 @@ focus_follows_mouse no
 
 # Floating windows
 for_window [class="imv"] floating enable
+for_window [class="LearnOpenGL"] floating enable
 
 # Autostart
 exec nmcli radio all on
@@ -54,7 +55,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id pamixer brightnessctl set 10%
 
 # Main Bindings
 bindsym $mod+d exec --no-startup-id dmenu_run -i
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 bindsym $mod+e exec nautilus
 bindsym $mod+i exec gimp
 bindsym $mod+t exec jetbrains-toolbox
