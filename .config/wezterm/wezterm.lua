@@ -9,9 +9,11 @@ end
 
 -- Config
 config.color_scheme = "One Dark (Gogh)"
-config.font = wezterm.font("JetBrains Mono")
+-- config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("Monocraft")
 config.use_fancy_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
+config.force_reverse_video_cursor = true
 
 config.colors = {
     foreground = "#abb2bf",
@@ -27,6 +29,16 @@ config.keys = {
         mods = "CTRL",
         key = "t",
         action = wezterm.action { SpawnTab = "CurrentPaneDomain" },
+    },
+    {
+        mods = "CTRL|SHIFT",
+        key = "h",
+        action = wezterm.action { MoveTabRelative = -1 },
+    },
+    {
+        mods = "CTRL|SHIFT",
+        key = "l",
+        action = wezterm.action { MoveTabRelative = 1 },
     },
 
     -- Tabs
