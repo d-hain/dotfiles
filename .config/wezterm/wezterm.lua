@@ -19,6 +19,23 @@ config.colors = {
     foreground = "#abb2bf",
 }
 
+config.mouse_bindings = {
+    -- Font Size
+    -- Scrolling up while holding CTRL increases the font size
+    {
+        event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+        mods = 'CTRL',
+        action = wezterm.action.IncreaseFontSize,
+    },
+
+    -- Scrolling down while holding CTRL decreases the font size
+    {
+        event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+        mods = 'CTRL',
+        action = wezterm.action.DecreaseFontSize,
+    },
+}
+
 config.keys = {
     {
         mods = "CTRL",

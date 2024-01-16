@@ -1,7 +1,7 @@
 # Aliases
 alias cls="clear"
 alias ls ="exa"
-alias ll="exa -la"
+alias ll="exa -la --icons"
 alias cdp="cd ~/NAS-David/Programming/"
 alias cdh="cd ~/NAS-David/HTL/2023-2024/"
 

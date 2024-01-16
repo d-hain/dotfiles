@@ -16,10 +16,13 @@ focus_follows_mouse no
 
 # Floating windows
 for_window [class="imv"] floating enable
-for_window [class="LearnOpenGL"] floating enable
+for_window [title="DEBUG"] floating enable
+
+# I hate this
+exec --no-startup-id systemctl disable --now wpa_supplicant.service
 
 # Autostart
-exec nmcli radio all on
+# exec nmcli radio all on
 exec setwallpaper -m scale /home/dhain/Pictures/wallpaper.png
 exec synology-drive
 exec /usr/local/bin/WhatPulse.AppImage
@@ -49,8 +52,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5
 bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
-bindsym XF86MonBrightnessUp exec --no-startup-id pamixer brightnessctl set 10%+
-bindsym XF86MonBrightnessDown exec --no-startup-id pamixer brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 #bindsym XF86AudioMicMute exec --no-startup-id pamixer 
 
 # Main Bindings
