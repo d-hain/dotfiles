@@ -1,7 +1,6 @@
 # My dotfiles
 
-Here all my currently used dotfiles layed out as if they were in my `$HOME`. \
-You can find my current setup (install script) [here](https://github.com/d-hain/debian_i3_install).
+Here all my currently used dotfiles layed out as if they were in my `$HOME`.
 
 # Cloning
 
