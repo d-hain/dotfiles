@@ -18,11 +18,7 @@ focus_follows_mouse no
 for_window [class="imv"] floating enable
 for_window [title="DEBUG"] floating enable
 
-# I hate this
-exec --no-startup-id systemctl disable --now wpa_supplicant.service
-
 # Autostart
-# exec nmcli radio all on
 exec setwallpaper -m scale /home/dhain/Pictures/wallpaper.png
 exec synology-drive
 exec /usr/local/bin/WhatPulse.AppImage
@@ -37,7 +33,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --image $home/Pictures/lockscreen.png
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --image $home/Pictures/lockscreen.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -62,7 +58,8 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+e exec nautilus
 bindsym $mod+i exec gimp
 bindsym $mod+t exec jetbrains-toolbox
-bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
+# Screenshot
+bindsym $mod+Shift+s exec flameshot gui
 
 bindsym $mod+l exec i3lock --image $home/Pictures/lockscreen.png
 

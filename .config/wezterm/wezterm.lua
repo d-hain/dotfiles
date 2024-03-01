@@ -7,6 +7,9 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+-- Disable update check
+config.check_for_updates = false
+
 -- Config
 config.color_scheme = "One Dark (Gogh)"
 config.font = wezterm.font("JetBrains Mono")
