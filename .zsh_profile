@@ -22,5 +22,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Startup
 clear
-# ./.config/wezterm/pictures.sh
-wezterm imgcat ~/Pictures/anime/luffy-gear-5th-moon-colored-wide.png
+# WARN: Removed due to memory leaks
+# wezterm imgcat ~/Pictures/anime/luffy-gear-5th-moon-colored-wide.png
