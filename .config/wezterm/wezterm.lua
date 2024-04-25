@@ -41,7 +41,7 @@ config.mouse_bindings = {
 
 config.keys = {
     {
-        mods = "CTRL",
+        mods = "CTRL|SHIFT",
         key = "w",
         action = wezterm.action.CloseCurrentTab { confirm = true },
     },

@@ -104,9 +104,6 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+space floating toggle
 
-# Unnecessary Dickriding
-bindsym $mod+Shift+d exec imv-x11 $home/Pictures/dickriding.jpg
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws0 "1"
