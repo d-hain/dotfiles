@@ -18,7 +18,9 @@ focus_follows_mouse no
 for_window [class="imv"] floating enable
 for_window [title="DEBUG"] floating enable
 
-# Autostart
+# --- Autostart ---
+# Needed for Clipmenu?!
+exec systemctl --user import-environment DISPLAY
 exec setwallpaper -m scale /home/dhain/Pictures/wallpaper.png
 exec synology-drive
 exec /usr/local/bin/WhatPulse.AppImage
@@ -60,6 +62,8 @@ bindsym $mod+i exec gimp
 bindsym $mod+t exec jetbrains-toolbox
 # Screenshot
 bindsym $mod+Shift+s exec flameshot gui
+# Clipboard Manager
+bindsym $mod+v exec clipmenu
 
 bindsym $mod+l exec i3lock --image $home/Pictures/lockscreen.png
 
@@ -96,7 +100,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+b split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+n split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
