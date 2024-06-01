@@ -1,9 +1,12 @@
 # Got this from https://github.com/cdown/clipmenu
 [Unit]
 Description=Clipmenu daemon
+# WARN: This is a hack to make sure clipmenud starts after X is initialized
+#       Obviously has to be changed if I stop using gdm
+After=gdm.service
 
 [Service]
-ExecStart=clipmenud
+ExecStart=/usr/local/bin/clipmenud
 Restart=always
 RestartSec=500ms
 
