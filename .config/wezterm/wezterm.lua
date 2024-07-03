@@ -41,6 +41,13 @@ config.mouse_bindings = {
 }
 
 config.keys = {
+    -- Remove key binding for the debug menu
+    {
+        mods = "CTRL|SHIFT",
+        key = "l",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+
     -- ----- Open/Move/Close Tabs -----
     -- Close current tab
     {
@@ -56,13 +63,13 @@ config.keys = {
     },
     -- Move current tab to the left
     {
-        mods = "CTRL|SHIFT",
+        mods = "CTRL|ALT|SHIFT",
         key = "h",
         action = action { MoveTabRelative = -1 },
     },
     -- Move current tab to the right
     {
-        mods = "CTRL|SHIFT",
+        mods = "CTRL|ALT|SHIFT",
         key = "l",
         action = action { MoveTabRelative = 1 },
     },
