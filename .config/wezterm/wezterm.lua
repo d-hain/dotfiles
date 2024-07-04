@@ -47,6 +47,12 @@ config.keys = {
         key = "l",
         action = wezterm.action.DisableDefaultAssignment,
     },
+    -- Remove key binding for something, idek
+    {
+        mods = "CTRL|SHIFT",
+        key = "k",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
 
     -- ----- Open/Move/Close Tabs -----
     -- Close current tab
