@@ -41,6 +41,15 @@ config.mouse_bindings = {
 }
 
 config.keys = {
+    -- Deleting words like a normal person does
+    {
+        mods = "CTRL",
+        key = "Backspace",
+        action = wezterm.action.SendKey {
+            mods = "CTRL",
+            key = "w"
+        }
+    },
     -- Remove key binding for the debug menu
     {
         mods = "CTRL|SHIFT",
