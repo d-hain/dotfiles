@@ -17,6 +17,7 @@ focus_follows_mouse no
 # Floating windows
 for_window [class="imv"] floating enable
 for_window [title="DEBUG"] floating enable
+for_window [class="org.gnome.Nautilus"] floating enable
 
 # --- Autostart ---
 # Needed for Clipmenu?!
