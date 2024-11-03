@@ -7,6 +7,10 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+-- Wayland is the future, but not until the next release that fixes Wezterm not
+-- launching on Wayland. see: https://github.com/wez/wezterm/issues/5604
+config.enable_wayland = false
+
 -- Disable update check
 config.check_for_updates = false
 
