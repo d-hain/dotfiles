@@ -1,5 +1,5 @@
-#! /bin/bash
+#! /bin/sh
 
-killall -q wofi
+killall wofi
 
-wofi --show drun
+wofi -i --show drun
