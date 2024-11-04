@@ -1,27 +1,17 @@
 # Aliases
 alias cls="clear"
 alias csl="sl"
-alias ls="exa"
-alias ll="exa -la --icons"
+alias ls="eza"
+alias ll="eza -la --icons"
 alias cdp="cd ~/NAS-David/Programming/"
-alias cdh="cd ~/NAS-David/HTL/Matura/"
 alias cdd="cd ~/Downloads/"
 alias enc="nvim ~/dotfiles/.config/nvim/"
+alias enx="nvim ~/dotfiles/nixos/"
+alias enxc="nvim ~/dotfiles/nixos/hosts/default/configuration.nix"
 
 # Exports
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Odin:$PATH"
-
-## Bob neovim version manager
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-
-## NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# `Just` completions
-source ~/.just.zsh
 
 # Startup
 clear
