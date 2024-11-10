@@ -1,0 +1,68 @@
+{
+    "layer": "top",
+    "position": "top",
+	"mod": "dock",
+	"height": 53,
+    // "width": 1280,
+    "spacing": 5,
+	"exclusive": true,
+	"passthrough": false,
+	"gtk-layer-shell": true,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio", "network", "tray", "clock"],
+
+    "hyprland/window": {
+        "separate-outputs": true
+    },
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+			"1": "一",
+			"2": "二",
+			"3": "三",
+			"4": "四",
+			"5": "五",
+			"6": "六",
+			"7": "七",
+			"8": "八",
+			"9": "九",
+			"10": "十"
+		},
+		"sort-by-number": true
+	},
+
+	"clock": {
+		"format": "{:%H:%M}",
+		"format-alt": "{:%H:%M  %b %Y}",
+		"tooltip-format": "{calendar}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 0, // Disable scrolling
+        "format": "{icon}  {volume}%",
+        "format-muted": "🔇 {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "🔇 {icon} {format_source}",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "Wifi: {essid} @ {ipaddr}",
+        "format-ethernet": "Eth: {ipaddr}",
+        "format-disconnected": "No internet",
+        "tooltip-format": "Gateway: {gwaddr} at {ifname}",
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+}
