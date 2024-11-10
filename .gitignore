@@ -1,1 +1,4 @@
 .config/systemd/user/default.target.wants
+
+.SynologyDrive/
+!.SynologyDrive/data/session/1/conf/blacklist.filter
