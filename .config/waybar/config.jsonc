@@ -37,8 +37,7 @@
 
 	"clock": {
 		"format": "{:%H:%M}",
-		"format-alt": "{:%H:%M  %b %Y}",
-		"tooltip-format": "{calendar}"
+		"tooltip-format": "{:%d-%m-%Y %b}"
     },
 
     "pulseaudio": {
