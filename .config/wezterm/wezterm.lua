@@ -10,6 +10,8 @@ end
 -- Wayland is the future, but not until the next release that fixes Wezterm not
 -- launching on Wayland. see: https://github.com/wez/wezterm/issues/5604
 config.enable_wayland = false
+-- I am SOOO looking forward to the Ghostty release
+config.front_end = "WebGpu"
 
 -- Disable update check
 config.check_for_updates = false
