@@ -1,0 +1,46 @@
+theme = JetBrains Darcula
+
+# Makes startup times after the first one better
+# First startup time is still ass
+gtk-single-instance = true
+
+window-theme = ghostty
+window-decoration = false
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-invert-fg-bg = true
+
+mouse-hide-while-typing = true
+unfocused-split-fill = #251825
+
+copy-on-select = false
+
+################
+### Keybinds ###
+################
+
+# Tabs
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_surface
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
+keybind = ctrl+5=goto_tab:5
+keybind = ctrl+6=goto_tab:6
+keybind = ctrl+7=goto_tab:7
+keybind = ctrl+8=goto_tab:8
+keybind = ctrl+9=goto_tab:9
+
+# Splits
+keybind = ctrl+alt+h=goto_split:left
+#keybind = ctrl+alt+j=goto_split:below
+#keybind = ctrl+alt+k=goto_split:above
+keybind = ctrl+alt+l=goto_split:right
+
+# Reload Config
+keybind = ctrl+shift+r=reload_config
+
+# Mouse wheel font size in- and decrease?!
+# keybind = ctrl+ScrollUp=increase_font_size
