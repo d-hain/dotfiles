@@ -34,10 +34,10 @@ keybind = ctrl+8=goto_tab:8
 keybind = ctrl+9=goto_tab:9
 
 # Splits
-keybind = ctrl+alt+h=goto_split:left
-#keybind = ctrl+alt+j=goto_split:below
-#keybind = ctrl+alt+k=goto_split:above
-keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+shift+alt+h=goto_split:left
+keybind = ctrl+shift+alt+j=goto_split:bottom
+keybind = ctrl+shift+alt+k=goto_split:top
+keybind = ctrl+shift+alt+l=goto_split:right
 
 # Reload Config
 keybind = ctrl+shift+r=reload_config
