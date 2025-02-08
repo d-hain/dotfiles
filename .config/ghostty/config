@@ -57,6 +57,7 @@ keybind = alt+z=new_split:left
 keybind = alt+u=new_split:down
 keybind = alt+i=new_split:up
 keybind = alt+o=new_split:right
+
 keybind = alt+h=goto_split:left
 keybind = alt+j=goto_split:bottom
 keybind = alt+k=goto_split:top

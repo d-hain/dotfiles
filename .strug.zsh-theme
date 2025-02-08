@@ -13,6 +13,8 @@ function in_nix_shell() {
             else
                 echo -n " shell";
             fi
+        else
+            echo -n " shell";
         fi
     fi
 }
