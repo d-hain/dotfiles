@@ -21,3 +21,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " When using Ctrl + d and Ctrl + u move cursor to the middle of the screen
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+
+syntax on
+colorscheme habamax
