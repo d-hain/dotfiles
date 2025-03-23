@@ -8,7 +8,7 @@ function in_nix_shell() {
         if [ -e ./.envrc ] && [ ! -d ./.envrc ]; then
             local first_line=$(head -n 1 ./.envrc)
 
-            if [ $first_line = "use flake" ]; then 
+            if [ $first_line = "use flake" ]; then
                 echo -n " dev";
             else
                 echo -n " shell";
@@ -25,7 +25,7 @@ function in_venv() {
     fi
 }
 
-function statuses() {
+function get_status() {
     local nix_shell=$(in_nix_shell)
     local venv=$(in_venv)
 
@@ -38,10 +38,10 @@ function statuses() {
 }
 
 local git_branch='$(git_prompt_info)%{$reset_color%}$(git_remote_status)'
-local status_sus='$(statuses)'
+local curr_status='$(get_status)'
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT="%{$fg[green]%}╭─%n@%m%{$reset_color%}${status_sus} %{$fg[yellow]%}in %~ %{$reset_color%}${git_branch}
+PROMPT="%{$fg[green]%}╭─%n@%m%{$reset_color%}${curr_status} %{$fg[yellow]%}in %~ %{$reset_color%}${git_branch}
 %{$fg[green]%}╰\$ %{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}on "
