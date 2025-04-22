@@ -1,9 +1,5 @@
 theme = JetBrains Darcula
 
-# Makes startup times after the first one better
-# First startup time is still ass
-gtk-single-instance = true
-
 window-theme = ghostty
 window-decoration = false
 
@@ -51,17 +47,6 @@ keybind = ctrl+tab=next_tab
 keybind = ctrl+shift+tab=previous_tab
 keybind = ctrl+shift+alt+h=move_tab:-1
 keybind = ctrl+shift+alt+l=move_tab:+1
-
-# Splits
-keybind = alt+z=new_split:left
-keybind = alt+u=new_split:down
-keybind = alt+i=new_split:up
-keybind = alt+o=new_split:right
-
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:bottom
-keybind = alt+k=goto_split:top
-keybind = alt+l=goto_split:right
 
 # Reload Config
 keybind = ctrl+shift+r=reload_config
