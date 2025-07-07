@@ -40,7 +40,7 @@ function get_status() {
 function get_shell_level() {
     local level=$(echo -n $SHLVL)
     if [ $level -gt 1 ]; then
-        echo -n "%{$fg[orange]%}$level%{$reset_color%}"
+        echo -n " %{$fg[orange]%}$level%{$reset_color%}"
     fi
 }
 
