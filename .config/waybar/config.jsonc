@@ -12,7 +12,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "tray", "clock"],
+    "modules-right": ["custom/wireguard", "pulseaudio", "network", "tray", "clock"],
 
     "hyprland/window": {
         "separate-outputs": true
@@ -35,6 +35,14 @@
 		},
 		"sort-by-number": true
 	},
+
+    // Custom Wireguard for showing if it is activated or not
+    "custom/wireguard": {
+        "exec": "~/.config/waybar/wireguard.sh",
+        "return-type": "json",
+        "format": "{text}",
+        "hide-empty-text": true,
+    },
 
 	"clock": {
 		"format": "{:%H:%M}",
