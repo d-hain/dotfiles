@@ -24,3 +24,4 @@ nnoremap <C-u> <C-u>zz
 
 syntax on
 colorscheme habamax
+filetype plugin indent on
