@@ -4,17 +4,11 @@ import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 
-import "."
-
 Scope {
   id: root
   readonly property real barHeight: 42
   readonly property real margin: 5
-
-  SystemClock {
-    id: clock
-    precision: SystemClock.Seconds
-  }
+  readonly property real spacing: 10
 
   Variants {
     model: Quickshell.screens
@@ -24,6 +18,7 @@ Scope {
       required property var modelData
       screen: modelData
 
+      color: "transparent"
       implicitHeight: root.barHeight
       anchors {
         top: true
@@ -31,22 +26,21 @@ Scope {
         right: true
       }
 
+      Workspaces {}
+
       RowLayout {
         anchors.right: parent.right
-        spacing: 10
+        spacing: root.spacing
 
+        Audio {}
+        Battery {}
+        Internet {}
         Rectangle { // System Tray
           color: "green"
-          Layout.topMargin: root.margin
-          Layout.bottomMargin: root.margin
           Layout.preferredWidth: 60
           Layout.preferredHeight: root.barHeight - root.margin * 2
         }
-        DateAndTime {
-          clock: root.clock
-          margin: root.margin
-          barHeight: root.barHeight - root.margin * 2
-        }
+        DateAndTime {}
       }
     }
   }

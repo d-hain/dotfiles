@@ -1,26 +1,19 @@
 import Quickshell
+import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-  required property SystemClock clock
-  required property real margin
-  required property real barHeight
-
-  readonly property string time: {
-    Qt.formatDateTime( clock.date, "hh:mm - dd. MMM" )
-  }
-
   color: "teal"
-  Layout.topMargin: this.margin
-  Layout.bottomMargin: this.margin
-  Layout.rightMargin: this.margin
-  Layout.preferredWidth: timeText.implicitWidth + this.margin * 3
-  Layout.preferredHeight: this.barHeight
+  Layout.topMargin: root.margin
+  Layout.bottomMargin: root.margin
+  Layout.rightMargin: root.margin
+  Layout.preferredWidth: timeText.implicitWidth + root.margin * 3
+  Layout.preferredHeight: root.barHeight - root.margin * 2
 
   Text {
     id: timeText
     anchors.centerIn: parent
-    text: this.time
+    text: Time.time
   }
 }
