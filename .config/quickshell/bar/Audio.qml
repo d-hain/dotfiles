@@ -1,26 +1,51 @@
 import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 
-Rectangle {
+BarRectangle {
   id: rect
-  property real percent
+  property bool isMuted: false
+  property string volume
 
-  color: "red"
-  Layout.preferredWidth: audioText.implicitWidth + root.margin * 3
-  Layout.preferredHeight: root.barHeight - root.margin * 2
+  rightBorder: true
+  color: rect.isMuted ? Colors.bgHighlight : Colors.bg
 
   Process {
-    command: ["sh", "-c", "echo $(($(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2) * 100)) | tr -d '.'"]
+    command: ["sh", "-c", "wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f3"]
     running: true
+    onRunningChanged: if (!this.running) this.running = true
     stdout: StdioCollector {
-      onStreamFinished: rect.percent = this.text
+        onStreamFinished: rect.isMuted = this.text.trim() == "[MUTED]"
     }
   }
 
-  Text {
-    id: audioText
-    anchors.centerIn: parent
-    text: rect.percent + "%"
+  Process {
+    command: ["sh", "-c", "wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2 | tr -d '.\n' | sed 's/^0//'"]
+    running: true
+    onRunningChanged: if (!this.running) this.running = true
+    stdout: StdioCollector {
+      onStreamFinished: rect.volume = this.text
+    }
+  }
+
+  textColor: rect.isMuted ? Colors.purple : Colors.text
+  textFont.bold: rect.isMuted
+  text: {
+    switch (rect.isMuted) {
+    case true:  return "[MUTED] " + rect.volume + "%"
+    case false: return volumeBar() + rect.volume + "%"
+    }
+  }
+  function volumeBar() {
+    const fraction = rect.volume / 25
+    return "[" + "=".repeat(fraction).padEnd(4, " ") + "] "
+  }
+
+  Process {
+      id: pavucontrol
+      command: ["pavucontrol"]
+  }
+  MouseArea {
+    anchors.fill: rect
+    onClicked: pavucontrol.running = true
   }
 }

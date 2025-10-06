@@ -9,6 +9,10 @@ Scope {
   readonly property real barHeight: 42
   readonly property real margin: 5
   readonly property real spacing: 10
+  readonly property font font: ({
+      family: "JetBrains Mono",
+      pointSize: 10
+  })
 
   Variants {
     model: Quickshell.screens
@@ -28,6 +32,8 @@ Scope {
 
       Workspaces {}
 
+      Titlebar {}
+
       RowLayout {
         anchors.right: parent.right
         spacing: root.spacing
@@ -35,11 +41,7 @@ Scope {
         Audio {}
         Battery {}
         Internet {}
-        Rectangle { // System Tray
-          color: "green"
-          Layout.preferredWidth: 60
-          Layout.preferredHeight: root.barHeight - root.margin * 2
-        }
+        SystemTray {}
         DateAndTime {}
       }
     }

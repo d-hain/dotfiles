@@ -3,17 +3,35 @@ import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 
-Rectangle {
-  color: "teal"
-  Layout.topMargin: root.margin
-  Layout.bottomMargin: root.margin
-  Layout.rightMargin: root.margin
-  Layout.preferredWidth: timeText.implicitWidth + root.margin * 3
-  Layout.preferredHeight: root.barHeight - root.margin * 2
+// TODO: Calendar on hover
 
-  Text {
-    id: timeText
-    anchors.centerIn: parent
-    text: Time.time
+BarRectangle {
+  Layout.rightMargin: root.margin
+  rightBorder: true
+
+  text: Time.time
+  textColor: Colors.green
+  textFont.bold: true
+
+  BarRectangle {
+    id: tooltip
+
+    visible: false
+    anchors.left: parent.left
+    // TODO: y position
+
+    text: Time.date
+  }
+
+  MouseArea {
+    anchors.fill: parent
+    hoverEnabled: true
+
+    onEntered: () => {
+      tooltip.visible = true
+    }
+    onExited: () => {
+      tooltip.visible = false
+    }
   }
 }

@@ -1,19 +1,17 @@
 import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 
-Rectangle {
+BarRectangle {
   id: rect
   property real percent
-  property bool isCharging
+  property bool isDischarging
 
-  color: "red"
-  Layout.preferredWidth: batteryText.implicitWidth + root.margin * 3
-  Layout.preferredHeight: root.barHeight - root.margin * 2
+  rightBorder: true
 
   Process {
     command: ["sh", "-c", "acpi -b | tail -n 1 | cut -d ' ' -f4 | tr -d '%,'"]
     running: true
+    onRunningChanged: if (!this.running) this.running = true
     stdout: StdioCollector {
       onStreamFinished: rect.percent = this.text
     }
@@ -22,21 +20,18 @@ Rectangle {
   Process {
     command: ["sh", "-c", "acpi -b | tail -n 1 | cut -d ' ' -f3 | tr -d ','"]
     running: true
+    onRunningChanged: if (!this.running) this.running = true
     stdout: StdioCollector {
         onStreamFinished: {
             if (this.text == "Discharging") {
-                rect.isCharging = false
-            } else if (this.text == "Charging") {
-                rect.isCharging = true
+                rect.isDischarging = true
+            } else {
+                rect.isDischarging = false
             }
         }
     }
   }
 
-  Text {
-    id: batteryText
-    color: rect.isCharging ? "green" : "orange"
-    anchors.centerIn: parent
-    text: rect.percent + "%"
-  }
+  textColor: rect.isDischarging ? "red" : Colors.green
+  text: "BAT " + rect.percent + "%"
 }

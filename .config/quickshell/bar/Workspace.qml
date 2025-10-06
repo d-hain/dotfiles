@@ -2,33 +2,72 @@ import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
-Rectangle {
+BarRectangle {
+  id: rect
   property real percent
   property bool isCharging
+  property bool isHighlighted
+  required property bool isActive
+  required property real workspaceId
 
-  color: "gray"
   Layout.topMargin: root.margin
   Layout.bottomMargin: root.margin
   Layout.leftMargin: root.margin
-  Layout.preferredWidth: 30 + root.margin * 2
-  Layout.preferredHeight: root.barHeight - root.margin * 2
+  implicitWidth: 30 + root.margin * 2
+  implicitHeight: root.barHeight - root.margin * 2
 
-  Text {
-      text: {
-          const id = Hyprland.activeToplevel.workspace.id
-          switch (id) {
-            case 1: "一"; break;
-            case 2: "二"; break;
-            case 3: "三"; break;
-            case 4: "四"; break;
-            case 5: "五"; break;
-            case 6: "六"; break;
-            case 7: "七"; break;
-            case 8: "八"; break;
-            case 9: "九"; break;
-            case 0: "十"; break;
-          }
-      }
-    anchors.centerIn: parent
+  color: {
+    if (this.isActive || this.isHighlighted) return Colors.bgHighlight
+    return Colors.bg
   }
+  border.color: {
+      if (this.isActive) return Colors.purple
+      return Colors.bgHighlight
+  }
+
+  textFont.bold: rect.isHighlighted
+  textColor: {
+    if (rect.isActive) return Colors.green
+    return Colors.text
+  }
+  text: {
+      if (rect.isActive) {
+        return yappanese(Hyprland.focusedWorkspace.id)
+      } else {
+        return yappanese(rect.workspaceId)
+      }
+  }
+
+  MouseArea {
+    anchors.fill: rect
+    hoverEnabled: true
+
+    onEntered: () => {
+      rect.isHighlighted = true
+    }
+    onExited: () => {
+      rect.isHighlighted = false
+    }
+    onClicked: () => {
+        if (!isActive) {
+            Hyprland.dispatch(`workspace ${rect.workspaceId}`)
+        }
+    }
+  }
+
+  function yappanese(id) {
+      switch (id) {
+      case 1: return "一"
+      case 2: return "二"
+      case 3: return "三"
+      case 4: return "四"
+      case 5: return "五"
+      case 6: return "六"
+      case 7: return "七"
+      case 8: return "八"
+      case 9: return "九"
+      case 0: return "十"
+      }
+  }
+
 }

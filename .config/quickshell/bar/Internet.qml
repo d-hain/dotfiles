@@ -1,35 +1,43 @@
 import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 
-Rectangle {
+BarRectangle {
   id: rect
+  property bool hasInternet: false
   property string ssid
   property string ip
 
-  color: "green"
-  Layout.preferredWidth: internetText.implicitWidth + root.margin * 3
-  Layout.preferredHeight: root.barHeight - root.margin * 2
+  rightBorder: true
 
   Process {
     command: ["sh", "-c", "nmcli -t -f active,ssid dev wifi | rg '^yes' | cut -d ':' -f2 | tr -d '\n'"]
     running: true
+    onRunningChanged: if (!this.running) this.running = true
     stdout: StdioCollector {
-      onStreamFinished: rect.ssid = this.text
+        onStreamFinished: {
+            if (this.text.trim() == "") {
+                rect.hasInternet = false
+            } else {
+                rect.hasInternet = true
+                rect.ssid = this.text
+            }
+        }
     }
   }
 
   Process {
     command: ["sh", "-c", "hostname -I | cut -d ' ' -f1 | tr -d '\n'"]
     running: true
+    onRunningChanged: if (!this.running) this.running = true
     stdout: StdioCollector {
       onStreamFinished: rect.ip = this.text
     }
   }
 
-  Text {
-    id: internetText
-    anchors.centerIn: parent
-    text: rect.ssid + " @ " + rect.ip
+  text: {
+    switch (hasInternet) {
+    case true:  return rect.ssid + " @ " + rect.ip
+    case false: return "No internet"
+    }
   }
 }
