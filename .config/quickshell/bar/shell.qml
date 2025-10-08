@@ -6,8 +6,8 @@ import QtQuick.Layouts
 
 Scope {
   id: root
-  readonly property real barHeight: 42
-  readonly property real margin: 5
+  readonly property real barHeight: 50
+  readonly property real margin: 7
   readonly property real spacing: 10
   readonly property font font: ({
       family: "JetBrains Mono",
