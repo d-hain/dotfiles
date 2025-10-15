@@ -21,6 +21,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray,
+#battery,
 .wireguard {
     color: @text;
 
@@ -38,8 +39,13 @@ window#waybar {
 #pulseaudio,
 #network,
 #tray,
+#battery,
 #clock {
     border-right: 2px solid @purple;
+}
+
+#battery.critical {
+    border: 2px solid red;
 }
 
 .wireguard {
