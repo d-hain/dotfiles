@@ -25,7 +25,7 @@ keybind = ctrl+shift+v=paste_from_clipboard
 
 # In- and decrease Font Size
 keybind = ctrl+plus=increase_font_size:1
-keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+-=decrease_font_size:1
 # Mouse wheel font size in- and decrease?!
 # keybind = ctrl+ScrollUp=increase_font_size
 
