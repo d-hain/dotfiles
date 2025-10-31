@@ -12,7 +12,7 @@ black_suffix = ".ez", ".lnk", ".pst", ".swp", ".temp", ".tmp"
 max_size = 0
 
 [Directory]
-black_name = "node_modules", "build", ".gradle", "target", ".build", "mysql", "__pycache__", "venv", "_build", "deps", "zig-cache", "zig-out", ".svelte-kit"
+black_name = "node_modules", "build", ".gradle", "target", ".build", "mysql", "__pycache__", "venv", "_build", "deps", "zig-cache", "zig-out", ".svelte-kit", ".direnv", "result"
 
 [EA]
 
