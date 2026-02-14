@@ -1,3 +1,8 @@
+> [!WARNING]
+> The contents of this repository have been moved to my NixOS configuration.
+> Currently under https://github.com/d-hain/NixOS in the `/dotfiles` directory.
+> The last normal state of this repository is at this commit: 5f73eb91d31acc871a530dfd6152097a3831c471
+
 # My dotfiles
 
 Here all my currently used dotfiles layed out as if they were in my `$HOME`.
